@@ -1,0 +1,18 @@
+.movie-list-leader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 12px;
+}
+
+.movie-list-leader label {
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.movie-list-leader input {
+  outline: none;
+  color: grey;
+  font-size: 18px;
+  padding: 6px 4px;
+}

@@ -1,84 +1,102 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import MovieListHeader from './components/movieListHeader/MovieListHeader';
 import MovieList from './components/movieList/MovieList';
 
 const App = () => {
   const [movies, setMovies] = useState([
     {
-      "Title": "Star Wars: Episode IV - A New Hope",
-      "Year": "1977",
-      "imdbID": "tt0076759",
+      "Title": "Terminator 2: Judgment Day",
+      "Year": "1991",
+      "imdbID": "tt0103064",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
     },
     {
-      "Title": "Star Wars: Episode V - The Empire Strikes Back",
-      "Year": "1980",
-      "imdbID": "tt0080684",
+      "Title": "The Terminator",
+      "Year": "1984",
+      "imdbID": "tt0088247",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+      "Poster": "https://m.media-amazon.com/images/M/MV5BYTViNzMxZjEtZGEwNy00MDNiLWIzNGQtZDY2MjQ1OWViZjFmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
     },
     {
-      "Title": "Star Wars: Episode VI - Return of the Jedi",
-      "Year": "1983",
-      "imdbID": "tt0086190",
+      "Title": "Terminator 3: Rise of the Machines",
+      "Year": "2003",
+      "imdbID": "tt0181852",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTk5NzM1ODgyN15BMl5BanBnXkFtZTcwMzA5MjAzMw@@._V1_SX300.jpg"
     },
     {
-      "Title": "Star Wars: Episode VII - The Force Awakens",
+      "Title": "Terminator Salvation",
+      "Year": "2009",
+      "imdbID": "tt0438488",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BODBlOTJhZjItMGRmYS00YzM1LWFmZTktOTJmNDMyZTBjMjBkXkEyXkFqcGdeQXVyMjMwNDgzNjc@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Terminator Genisys",
       "Year": "2015",
-      "imdbID": "tt2488496",
+      "imdbID": "tt1340138",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX300.jpg"
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjM1NTc0NzE4OF5BMl5BanBnXkFtZTgwNDkyNjQ1NTE@._V1_SX300.jpg"
     },
     {
-      "Title": "Star Wars: Episode I - The Phantom Menace",
-      "Year": "1999",
-      "imdbID": "tt0120915",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
-    },
-    {
-      "Title": "Star Wars: Episode III - Revenge of the Sith",
-      "Year": "2005",
-      "imdbID": "tt0121766",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_SX300.jpg"
-    },
-    {
-      "Title": "Star Wars: Episode II - Attack of the Clones",
-      "Year": "2002",
-      "imdbID": "tt0121765",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg"
-    },
-    {
-      "Title": "Star Wars: Episode VIII - The Last Jedi",
-      "Year": "2017",
-      "imdbID": "tt2527336",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMjQ1MzcxNjg4N15BMl5BanBnXkFtZTgwNzgwMjY4MzI@._V1_SX300.jpg"
-    },
-    {
-      "Title": "Rogue One: A Star Wars Story",
-      "Year": "2016",
-      "imdbID": "tt3748528",
-      "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SX300.jpg"
-    },
-    {
-      "Title": "Star Wars: Episode IX - The Rise of Skywalker",
+      "Title": "Terminator: Dark Fate",
       "Year": "2019",
-      "imdbID": "tt2527338",
+      "imdbID": "tt6450804",
       "Type": "movie",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMDljNTQ5ODItZmQwMy00M2ExLTljOTQtZTVjNGE2NTg0NGIxXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SX300.jpg"
+      "Poster": "https://m.media-amazon.com/images/M/MV5BOWExYzVlZDgtY2E1ZS00NTFjLWFmZWItZjI2NWY5ZWJiNTE4XkEyXkFqcGdeQXVyMTA3MTA4Mzgw._V1_SX300.jpg"
     },
+    {
+      "Title": "Terminator: The Sarah Connor Chronicles",
+      "Year": "2008–2009",
+      "imdbID": "tt0851851",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZGE2ZDgyOWUtNzdiNS00OTI3LTkwZGQtMTMwNzM4YWUxNGNhXkEyXkFqcGdeQXVyNjU2NjA5NjM@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Terminator 3: Rise of the Machines",
+      "Year": "2003",
+      "imdbID": "tt0364056",
+      "Type": "game",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjA5OTk4MTQwNV5BMl5BanBnXkFtZTgwMzkxNTEwMTE@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Terminator 2: Judgment Day",
+      "Year": "1991",
+      "imdbID": "tt0244839",
+      "Type": "game",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BN2FhOTQ2MmQtNTY0OC00NWYyLThjNjMtZmZiOTBmYTY4MmM2XkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Lady Terminator",
+      "Year": "1989",
+      "imdbID": "tt0095483",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NTA1NzEtNWNiNy00ZTc4LWJhZTgtYmJkODZhYWI3NmQ4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+    }
   ]);
+  const [searchValue, setSearchValue] = useState('');
+
+  // const getMovieRequest = async (searchValue) => {
+  //   const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=42e8410c`;
+
+  //   const response = await fetch(url);
+  //   const responseJSON = await response.json();
+
+  //   if (responseJSON.Search) {
+  //     setMovies(responseJSON.Search);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getMovieRequest(searchValue);
+  // }, [searchValue]);
 
   return (
     <>
-      <MovieList movies={movies}/>
+      <MovieListHeader searchValue={searchValue} setSearchValue={setSearchValue} />
+      <MovieList movies={movies} />
     </>
   );
 }

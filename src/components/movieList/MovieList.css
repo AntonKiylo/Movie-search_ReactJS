@@ -5,6 +5,33 @@
 }
 
 .movie-list img {
-  margin: 12px;
+  height: 100%;
+  width: fit-content;
+}
+
+.poster {
+  position: relative;
+  margin: 0 12px 12px 12px;
   border: 2px solid #ffffff;
+  transform: scale(1);
+  transition: 500ms;
+}
+
+.poster-footer {
+  position: absolute;
+  background-color: #0f00ff9e;
+  width: 100%;
+  transform: scale(0);
+  bottom: 0;
+  height: 100px;
+  transition: 500ms;
+}
+
+.poster:hover {
+  transform: scale(1.1);
+  z-index: 999;
+}
+
+.poster:hover .poster-footer {
+  transform: scale(1);
 }

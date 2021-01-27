@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .movie-list img {
@@ -14,24 +15,39 @@
   margin: 0 12px 12px 12px;
   border: 2px solid #ffffff;
   transform: scale(1);
-  transition: 500ms;
+  transition: 400ms;
 }
 
 .poster-footer {
   position: absolute;
-  background-color: #0f00ff9e;
+  background-color: rgb(255 255 255 / 80%);
+  color: black;
   width: 100%;
   transform: scale(0);
   bottom: 0;
-  height: 100px;
-  transition: 500ms;
+  height: 70px;
+  transition: 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster-footer img {
+  height: 22px;
+  width: auto;
+  margin-left: 6px;
+  transition: 400ms;
 }
 
 .poster:hover {
-  transform: scale(1.1);
-  z-index: 999;
+  transform: scale(1.04);
+  cursor: pointer;
 }
 
 .poster:hover .poster-footer {
   transform: scale(1);
+}
+
+.poster-footer:hover img {
+  transform: scale(1.2);
 }

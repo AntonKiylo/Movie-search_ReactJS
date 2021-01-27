@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import MovieListHeader from './components/movieListHeader/MovieListHeader';
 import MovieList from './components/movieList/MovieList';
+import FavoriteMoviesHeader from './components/favoriteMoviesHeader/FavoriteMoviesHeader';
+import FavoriteMoviesList from './components/favoriteMoviesList/FavoriteMoviesList';
 
 const App = () => {
   const [movies, setMovies] = useState([
@@ -76,6 +78,8 @@ const App = () => {
       "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NTA1NzEtNWNiNy00ZTc4LWJhZTgtYmJkODZhYWI3NmQ4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     }
   ]);
+  const [favoriteMovies, setFavoriteMovie] = useState([]);
+
   const [searchValue, setSearchValue] = useState('');
 
   // const getMovieRequest = async (searchValue) => {
@@ -92,11 +96,12 @@ const App = () => {
   // useEffect(() => {
   //   getMovieRequest(searchValue);
   // }, [searchValue]);
-
   return (
     <>
       <MovieListHeader searchValue={searchValue} setSearchValue={setSearchValue} />
-      <MovieList movies={movies} />
+      <MovieList movies={movies} favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} />
+      <FavoriteMoviesHeader />
+      <FavoriteMoviesList favoriteMovies={favoriteMovies} />
     </>
   );
 }

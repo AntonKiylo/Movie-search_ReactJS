@@ -1,16 +1,16 @@
-.movie-list {
+.favorite-movie-list {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-.poster-img {
+.favorite-movie-list img {
   width: 220px;
   height: 100%;
 }
 
-.poster {
+.favorite-poster {
   position: relative;
   margin: 0 12px 12px 12px;
   border: 2px solid #ffffff;
@@ -18,7 +18,7 @@
   transition: 400ms;
 }
 
-.poster-footer {
+.favorite-poster-footer {
   position: absolute;
   background-color: rgb(255 255 255 / 80%);
   color: black;
@@ -32,22 +32,11 @@
   align-items: center;
 }
 
-.poster-footer img {
-  height: 22px;
-  width: auto;
-  margin-left: 6px;
-  transition: 400ms;
-}
-
-.poster:hover {
+.favorite-poster:hover {
   transform: scale(1.04);
   cursor: pointer;
 }
 
-.poster:hover .poster-footer {
+.favorite-poster:hover .favorite-poster-footer {
   transform: scale(1);
-}
-
-.poster-footer:hover img {
-  transform: scale(1.2);
 }

@@ -14,7 +14,7 @@ const MovieList = ({ movies, favoriteMovies, setFavoriteMovie }) => {
             <img src={movie.Poster} alt='Poster' className='poster-img' />
             <div className='poster-footer' onClick={() => addFavoriteMovie(movie)}>
               <p>Add to Favorites</p>
-              <img src={heartIcon} alt='heart-icon' />
+              <img src={heartIcon} alt='heart-icon' className='heart-icon' />
             </div>
           </div>
         );

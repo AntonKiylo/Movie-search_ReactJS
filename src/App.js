@@ -101,7 +101,7 @@ const App = () => {
       <MovieListHeader searchValue={searchValue} setSearchValue={setSearchValue} />
       <MovieList movies={movies} favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} />
       <FavoriteMoviesHeader />
-      <FavoriteMoviesList favoriteMovies={favoriteMovies} />
+      <FavoriteMoviesList favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} />
     </>
   );
 }

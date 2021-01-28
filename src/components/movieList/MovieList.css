@@ -14,13 +14,12 @@
   position: relative;
   margin: 0 12px 12px 12px;
   border: 2px solid #ffffff;
-  transform: scale(1);
   transition: 400ms;
 }
 
 .poster-footer {
   position: absolute;
-  background-color: rgb(255 255 255 / 80%);
+  background-color: rgba(255, 255, 255, .8);
   color: black;
   width: 100%;
   transform: scale(0);
@@ -32,7 +31,7 @@
   align-items: center;
 }
 
-.poster-footer img {
+.heart-icon {
   height: 22px;
   width: auto;
   margin-left: 6px;
@@ -48,6 +47,6 @@
   transform: scale(1);
 }
 
-.poster-footer:hover img {
+.poster-footer:hover .heart-icon {
   transform: scale(1.2);
 }

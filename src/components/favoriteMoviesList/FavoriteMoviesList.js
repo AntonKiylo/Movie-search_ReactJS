@@ -1,8 +1,10 @@
 import './FavoriteMoviesList.css';
 
-const FavoriteMoviesList = ({ favoriteMovies, setFavoriteMovie }) => {
+const FavoriteMoviesList = ({ favoriteMovies, setFavoriteMovie, saveToLocalStorage }) => {
   const removeMovie = (favoriteMovie) => {
-    setFavoriteMovie(favoriteMovies.filter(item => item.imdbID !== favoriteMovie.imdbID));
+    const saveMovie = favoriteMovies.filter(item => item.imdbID !== favoriteMovie.imdbID); 
+    setFavoriteMovie(saveMovie);
+    saveToLocalStorage(saveMovie);
   }
 
   return (

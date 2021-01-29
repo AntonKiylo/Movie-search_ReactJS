@@ -96,12 +96,29 @@ const App = () => {
   // useEffect(() => {
   //   getMovieRequest(searchValue);
   // }, [searchValue]);
+
+  const saveToLocalStorage = (movie) => {
+    localStorage.setItem('movie-app-favorites', JSON.stringify(movie));
+  }
+
+  const getFromLocalStorage = () => {
+    return JSON.parse(localStorage.getItem('movie-app-favorites'));
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('movie-app-favorites')) {
+      setFavoriteMovie(getFromLocalStorage);
+    } else {
+      return;
+    }
+  }, []);
+
   return (
     <>
       <MovieListHeader searchValue={searchValue} setSearchValue={setSearchValue} />
-      <MovieList movies={movies} favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} />
+      <MovieList movies={movies} favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} saveToLocalStorage={saveToLocalStorage} />
       <FavoriteMoviesHeader />
-      <FavoriteMoviesList favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} />
+      <FavoriteMoviesList favoriteMovies={favoriteMovies} setFavoriteMovie={setFavoriteMovie} saveToLocalStorage={saveToLocalStorage} />
     </>
   );
 }

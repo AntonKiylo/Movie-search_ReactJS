@@ -1,9 +1,12 @@
 import './MovieList.css';
 import heartIcon from '../../assets/heart_icon.png';
 
-const MovieList = ({ movies, favoriteMovies, setFavoriteMovie }) => {
+const MovieList = ({ movies, favoriteMovies, setFavoriteMovie, saveToLocalStorage }) => {
+  
   const addFavoriteMovie = (movie) => {
-    setFavoriteMovie([...favoriteMovies, movie]);
+    const newFavoriteMovie = [...favoriteMovies, movie];
+    setFavoriteMovie(newFavoriteMovie);
+    saveToLocalStorage(newFavoriteMovie);
   }
 
   return (

@@ -5,11 +5,6 @@
   overflow-y: hidden;
 }
 
-.poster-img {
-  width: 220px;
-  height: 100%;
-}
-
 .poster {
   position: relative;
   margin: 0 12px 12px 12px;

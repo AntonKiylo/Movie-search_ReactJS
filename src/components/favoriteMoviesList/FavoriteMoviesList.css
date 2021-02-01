@@ -5,11 +5,6 @@
   overflow-y: hidden;
 }
 
-.favorite-movie-list img {
-  width: 220px;
-  height: 100%;
-}
-
 .favorite-poster {
   position: relative;
   margin: 0 12px 12px 12px;

@@ -12,10 +12,9 @@ const FavoriteMoviesList = ({ favoriteMovies, setFavoriteMovie, saveToLocalStora
       {favoriteMovies.map(favoriteMovie => {
         return (
           <div className='favorite-poster' key={favoriteMovie.imdbID}>
-            <img src={favoriteMovie.Poster} alt='Poster' />
+            <img src={favoriteMovie.Poster} width='220' height='350' alt='Poster' />
             <div className='favorite-poster-footer' onClick={() => removeMovie(favoriteMovie)}>
-              <p>Remove</p>
-              {/* <img src={heartIcon} alt='heart-icon' /> */}
+              <p>Remove from Favorites</p>
             </div>
           </div>
         );
